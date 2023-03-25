@@ -1,0 +1,33 @@
+﻿<Window x:Class="CHBookStore.Transaction"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHBookStore"
+        mc:Ignorable="d"
+        Title="Transaction" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/2111.w039.n003.23B.p1.23.jpg" Opacity="0.1"/>
+        </Grid.Background>
+        <TextBox x:Name="txt_Quantity" HorizontalAlignment="Left" Margin="89,298,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontFamily="Bahnschrift Condensed" Height="30"/>
+        <TextBox x:Name="txt_CustomerId" HorizontalAlignment="Left" Margin="89,251,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontFamily="Bahnschrift Condensed" Height="30"/>
+        <TextBlock x:Name="txt_amount" HorizontalAlignment="Left" Margin="24,304,0,0" TextWrapping="Wrap" Text="Quantity : " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="15" Width="250"/>
+        <TextBlock x:Name="txt_ID" HorizontalAlignment="Left" Margin="15,257,0,0" TextWrapping="Wrap" Text="Customer ID :" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="15"/>
+        <Button x:Name="btn_BackToBookOrder" Content="Back" HorizontalAlignment="Left" Margin="89,349,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" Width="130" Height="30" Click="btn_BackToBookOrder_Click"/>
+        <Button x:Name="btn_Confirm" Content="Confirm" HorizontalAlignment="Left" Margin="259,349,0,0" VerticalAlignment="Top" Click="confirm_Click" FontFamily="Bahnschrift Condensed" Width="130" Height="30"/>
+        <TextBlock x:Name="tb_BookISBN" HorizontalAlignment="Left" Margin="34,99,0,0" TextWrapping="Wrap" Text="ISBN :" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="15" RenderTransformOrigin="0.614,1.669"/>
+        <TextBlock x:Name="txt_BookDescription" HorizontalAlignment="Left" Margin="16,146,0,0" TextWrapping="Wrap" Text="Description : " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="15"/>
+        <TextBox x:Name="txt_BookISBN" HorizontalAlignment="Left" Margin="89,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" SelectionOpacity="1" TextChanged="txt_BookISBN_TextChanged" FontFamily="Bahnschrift Condensed" Height="30"/>
+        <TextBox x:Name="txt_Description" HorizontalAlignment="Left" Margin="89,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontFamily="Bahnschrift Condensed" Height="50"/>
+        <TextBlock x:Name="tb_Price" HorizontalAlignment="Left" Margin="35,0,0,0" TextWrapping="Wrap" Text="Price : " VerticalAlignment="Center" FontFamily="Bahnschrift Condensed" FontSize="15"/>
+        <TextBox x:Name="txt_Price" HorizontalAlignment="Left" Margin="89,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" RenderTransformOrigin="0.258,0.443" FontFamily="Bahnschrift Condensed" Height="30"/>
+        <TextBox x:Name="txt_TotalPrice" HorizontalAlignment="Left" Margin="508,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontFamily="Bahnschrift Condensed" Height="30"/>
+        <Button x:Name="btn_MakeAPurchase" Content="Make A Purchase" HorizontalAlignment="Left" Margin="508,275,0,0" VerticalAlignment="Top" Click="btn_MakeAPurchase_Click" FontFamily="Bahnschrift Condensed" Width="250" Height="30"/>
+        <TextBlock x:Name="tb_TotalPrice" HorizontalAlignment="Left" Margin="432,179,0,0" TextWrapping="Wrap" Text="TotalPrice : " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="15" RenderTransformOrigin="0.522,-0.387"/>
+        <TextBlock x:Name="tb_Transaction" HorizontalAlignment="Center" Margin="0,39,0,0" TextWrapping="Wrap" Text="Transaction" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="25"/>
+        <TextBox x:Name="txt_CustomerName" HorizontalAlignment="Left" Margin="508,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontFamily="Bahnschrift Condensed" Height="30"/>
+        <TextBlock x:Name="tb_TotalPrice_Copy" HorizontalAlignment="Left" Margin="417,225,0,0" TextWrapping="Wrap" Text="Customer Name : " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="15"/>
+
+    </Grid>
+</Window>
