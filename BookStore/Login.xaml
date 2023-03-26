@@ -18,7 +18,7 @@
         <TextBlock x:Name="tb_Password" HorizontalAlignment="Left" Margin="67,0,0,0" TextWrapping="Wrap" Text="Password : " VerticalAlignment="Center" FontSize="15" FontFamily="Bahnschrift Condensed"/>
         <TextBlock x:Name="tb_Heading" HorizontalAlignment="Center" Margin="0,46,0,0" TextWrapping="Wrap" Text="CH's Book Shop" VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift SemiBold"/>
         <TextBlock x:Name="tb_Login" HorizontalAlignment="Left" Margin="226,104,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" FontSize="15" FontFamily="Bahnschrift Condensed"/>
-        <TextBox x:Name="txt_UserName_SignUp" HorizontalAlignment="Left" Margin="479,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <TextBox x:Name="txt_UserName_SignUp" HorizontalAlignment="Left" Margin="479,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="30" FontFamily="Bahnschrift Condensed" TextChanged="txt_UserName_SignUp_TextChanged"/>
         <TextBox x:Name="txt_Password_SignUp" HorizontalAlignment="Left" Margin="479,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" Height="30" FontFamily="Bahnschrift Condensed"/>
         <TextBlock x:Name="tb_Username_SU" HorizontalAlignment="Left" Margin="405,155,0,0" TextWrapping="Wrap" Text="Username : " VerticalAlignment="Top" FontSize="15" FontFamily="Bahnschrift Condensed"/>
         <TextBlock x:Name="tb_Password_SU" HorizontalAlignment="Left" Margin="407,0,0,0" TextWrapping="Wrap" Text="Password : " VerticalAlignment="Center" FontSize="15" FontFamily="Bahnschrift Condensed"/>

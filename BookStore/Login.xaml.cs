@@ -60,5 +60,10 @@ namespace CHBookStore
                 DataAccess.AddUser(txt_UserName_SignUp.Text, txt_Password_SignUp.Text);
                 MessageBox.Show("Sign Up Successful");          
         }
+
+        private void txt_UserName_SignUp_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
