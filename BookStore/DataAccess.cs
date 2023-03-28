@@ -11,7 +11,7 @@ namespace CHBookStore
                new SqliteConnection($"Filename=BookStore.db"))
             {
                 db.Open();
-//           string droptablecommand = "drop table User ";
+//           string droptablecommand = "drop table Customers ";
 //           SqliteCommand droptable = new SqliteCommand(droptablecommand, db);
 //           droptable.ExecuteReader();
                 String tableCommand = "CREATE TABLE IF NOT EXISTS Books (ISBN INTEGER PRIMARY KEY," +
@@ -21,11 +21,11 @@ namespace CHBookStore
                     "CREATE TABLE IF NOT EXISTS Transactions (ReceiptNo NVARCHAR(50) PRIMARY KEY, ISBN INTEGER ," +
                     "Customer_Id INTEGER ,Quantity INTEGER ,Total_Price INTEGER);" +
                     "CREATE TABLE IF NOT EXISTS User(Username NVARCHAR(20),Password NVARCHAR(20));";
-               SqliteCommand createTable = new SqliteCommand(tableCommand, db);
-               createTable.ExecuteReader();
+              SqliteCommand createTable = new SqliteCommand(tableCommand, db);
+              createTable.ExecuteReader();
             }
         }
-        // Add BookData,CustomerData,TransactionData
+// Add BookData,CustomerData,TransactionData
         public static void AddBookData(string ISBN, string Title, string Description, string Price)
         {
             using (SqliteConnection db =
@@ -90,7 +90,7 @@ namespace CHBookStore
 
             }
         }
-        //Check User
+        //Check User,CustomerId,ISBN
         public static bool Username_Check(string Username)
         {
             using (SqliteConnection db =
@@ -111,6 +111,47 @@ namespace CHBookStore
             }
 
         }
+        public static bool ISBN_Check(string ISBN)
+        {
+            using (SqliteConnection db =
+               new SqliteConnection($"Filename=BookStore.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand
+                    ("SELECT * from Books WHERE ISBN = @ISBN ", db);
+                selectCommand.Parameters.Add(new SqliteParameter("@ISBN", ISBN));
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                bool ISBN_Check = false;
+                while (query.Read())
+                {
+                    ISBN_Check = true;
+                }
+                db.Close();
+                return ISBN_Check;
+            }
+
+        }
+        public static bool CustomerId_Check(string Customer_Id)
+        {
+            using (SqliteConnection db =
+               new SqliteConnection($"Filename=BookStore.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand
+                    ("SELECT * from Customers WHERE Customer_Id = @Customer_Id ", db);
+                selectCommand.Parameters.Add(new SqliteParameter("@Customer_Id", Customer_Id));
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                bool CustomerId_Check = false;
+                while (query.Read())
+                {
+                    CustomerId_Check = true;
+                }
+                db.Close();
+                return CustomerId_Check;
+            }
+
+        }
+
         // Add User,SignIn
         public static void AddUser(string Username, string Password)
         {
@@ -151,27 +192,6 @@ namespace CHBookStore
             }
 
         }
-        //ISBN Check
-        public static bool ISBN_Check(string ISBN)
-        {
-            using (SqliteConnection db =
-               new SqliteConnection($"Filename=BookStore.db"))
-            {
-                db.Open();
-                SqliteCommand selectCommand = new SqliteCommand
-                    ("SELECT * from Books WHERE ISBN = @ISBN ", db);
-                selectCommand.Parameters.Add(new SqliteParameter("@ISBN", ISBN));
-                SqliteDataReader query = selectCommand.ExecuteReader();
-                bool ISBN_Check = false;
-                while (query.Read())
-                {
-                    ISBN_Check = true;
-                }
-                db.Close();
-                return ISBN_Check;
-            }
-
-        }
 
         // DeleteCustomerData,BookData    
         public static void DeleteCustomerData(string Customer_Id)
@@ -183,7 +203,7 @@ namespace CHBookStore
                 SqliteCommand insertCommand = new SqliteCommand();
                 insertCommand.Connection = db;
 
-                insertCommand.CommandText = "DELETE FROM Customers WHERE Customer_Name = @Customer_Id;";
+                insertCommand.CommandText = "DELETE FROM Customers WHERE Customer_Id = @Customer_Id;";
                 insertCommand.Parameters.Add(new SqliteParameter("@Customer_Id", Customer_Id));
                 insertCommand.ExecuteReader();
 
@@ -218,8 +238,8 @@ namespace CHBookStore
                 SqliteCommand insertCommand = new SqliteCommand();
                 insertCommand.Connection = db;
 
-                insertCommand.CommandText = "UPDATE Books Title = @Title, Description = @Description, Price = @Price" +
-                    "WHERE ISBN = @ISBN;";
+                insertCommand.CommandText = "UPDATE Books SET Title = @Title, Description = @Description, Price = @Price" +
+                    " WHERE ISBN = @ISBN;";
                 insertCommand.Parameters.Add(new SqliteParameter("@ISBN", ISBN));
                 insertCommand.Parameters.Add(new SqliteParameter("@Title", Title));
                 insertCommand.Parameters.Add(new SqliteParameter("@Description", Description));
@@ -240,7 +260,7 @@ namespace CHBookStore
                 insertCommand.Connection = db;
 
                 insertCommand.CommandText = "UPDATE Customers SET Customer_Name = @Customer_Name, Address = @Address, Email = @Email" +
-                    "WHERE Customer_Id = @Customer_Id;";
+                    " WHERE Customer_Id = @Customer_Id;";
                 insertCommand.Parameters.Add(new SqliteParameter("@Customer_Id", Customer_Id));
                 insertCommand.Parameters.Add(new SqliteParameter("@Customer_Name", Customer_Name));
                 insertCommand.Parameters.Add(new SqliteParameter("@Address", Address));
@@ -251,7 +271,31 @@ namespace CHBookStore
 
             }
         }
-        // Where Description, Price, Customer in ShowBookInformation
+
+        //Where Title, Description, Price in ShowBookInformation
+
+        public static string Title_Where(string ISBN)
+        {
+            using (SqliteConnection db =
+              new SqliteConnection($"Filename=BookStore.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand();
+                selectCommand.Connection = db;
+
+                selectCommand.CommandText = "SELECT Title FROM Books WHERE ISBN = @ISBN";
+                selectCommand.Parameters.Add(new SqliteParameter("@ISBN", ISBN));
+                string colTitleValue = "";
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                while (query.Read())
+                {
+                    colTitleValue = query["Title"].ToString();
+                }
+
+                db.Close();
+                return colTitleValue;
+            }
+        }
         public static string Description_Where(string ISBN)
         {
             using (SqliteConnection db =
@@ -263,7 +307,6 @@ namespace CHBookStore
 
                 selectCommand.CommandText = "SELECT * FROM Books WHERE ISBN = @ISBN";
                 selectCommand.Parameters.Add(new SqliteParameter("@ISBN", ISBN));
-                //selectCommand.Parameters.Add(new SqliteParameter("@Description", Description));
                 string colDescriptionValue = "";
                 SqliteDataReader query = selectCommand.ExecuteReader();
                 while (query.Read())
@@ -299,6 +342,7 @@ namespace CHBookStore
 
             }
         }
+//Where Customer_Name, Address, Email in ShowBookInformation
         public static string CustomerName_Where(string Customer_Id)
         {
             using (SqliteConnection db =
@@ -311,15 +355,63 @@ namespace CHBookStore
                 selectCommand.CommandText = "SELECT Customer_Name FROM Customers WHERE Customer_Id = @Customer_Id";
                 selectCommand.Parameters.Add(new SqliteParameter("@Customer_Id", Customer_Id));
 
-                string colCustomer_NameValue = "";
+                string colCustomerNameValue = "";
                 SqliteDataReader query = selectCommand.ExecuteReader();
                 while (query.Read())
                 {
-                    colCustomer_NameValue = query["Customer_Name"].ToString();
+                    colCustomerNameValue = query["Customer_Name"].ToString();
                 }
 
                 db.Close();
-                return colCustomer_NameValue;
+                return colCustomerNameValue;
+
+            }
+        }
+        public static string Address_Where(string Customer_Id)
+        {
+            using (SqliteConnection db =
+              new SqliteConnection($"Filename=BookStore.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand();
+                selectCommand.Connection = db;
+
+                selectCommand.CommandText = "SELECT Address FROM Customers WHERE Customer_Id = @Customer_Id";
+                selectCommand.Parameters.Add(new SqliteParameter("@Customer_Id", Customer_Id));
+
+                string colAddressValue = "";
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                while (query.Read())
+                {
+                    colAddressValue = query["Address"].ToString();
+                }
+
+                db.Close();
+                return colAddressValue;
+
+            }
+        }
+        public static string Email_Where(string Customer_Id)
+        {
+            using (SqliteConnection db =
+              new SqliteConnection($"Filename=BookStore.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand();
+                selectCommand.Connection = db;
+
+                selectCommand.CommandText = "SELECT Email FROM Customers WHERE Customer_Id = @Customer_Id";
+                selectCommand.Parameters.Add(new SqliteParameter("@Customer_Id", Customer_Id));
+
+                string colEmailValue = "";
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                while (query.Read())
+                {
+                    colEmailValue = query["Email"].ToString();
+                }
+
+                db.Close();
+                return colEmailValue;
 
             }
         }

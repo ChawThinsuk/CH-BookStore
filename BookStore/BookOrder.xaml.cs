@@ -31,22 +31,20 @@ namespace CHBookStore
         }
         void BookInformation_Open()
         {
-            Transaction BookInformationScreen = new Transaction();
+            Transaction tf = new Transaction(txt_ISBN.Text);
             this.Visibility = Visibility.Hidden;
-            BookInformationScreen.Show();
+            tf.Show();
         }
         private void backToMain_Click(object sender, RoutedEventArgs e)
         {
             backToMain();
-        }
-
+        }       
         public void showBookInformation_Click(object sender, RoutedEventArgs e)
         {
-            bool Pass = DataAccess.ISBN_Check(txt_ISBN.Text);
-            if (Pass)
+            bool haveBook = DataAccess.ISBN_Check(txt_ISBN.Text);
+            if (haveBook)
             {
-                Transaction tf = new Transaction(txt_ISBN.Text);
-                tf.Show();
+                BookInformation_Open();
             }
             else
             {

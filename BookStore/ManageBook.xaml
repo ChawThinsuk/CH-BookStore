@@ -10,10 +10,10 @@
         <Grid.Background>
             <ImageBrush ImageSource="/2111.w039.n003.23B.p1.23.jpg" Opacity="0.1"/>
         </Grid.Background>
-        <Button Content="Add Book" HorizontalAlignment="Left" Margin="412,371,0,0" VerticalAlignment="Top" Click="AddBook_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
-        <Button x:Name="btn_BackToMain" Content="Back" HorizontalAlignment="Left" Margin="64,371,0,0" VerticalAlignment="Top" Click="BackToMain_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
-        <Button x:Name="btn_UpdateBook" Content="Update Book Information" HorizontalAlignment="Left" Margin="586,371,0,0" VerticalAlignment="Top" Click="UpdateBook_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
-        <Button Content="Delete Book" HorizontalAlignment="Left" Margin="231,371,0,0" VerticalAlignment="Top" Click="DeleteBook_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <Button Content="Add Book" HorizontalAlignment="Left" Margin="474,362,0,0" VerticalAlignment="Top" Click="AddBook_Click" Width="100" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <Button x:Name="btn_BackToMain" Content="Back" HorizontalAlignment="Left" Margin="66,362,0,0" VerticalAlignment="Top" Click="BackToMain_Click" Width="100" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <Button x:Name="btn_UpdateBook" Content="Update Book Information" HorizontalAlignment="Left" Margin="606,362,0,0" VerticalAlignment="Top" Click="UpdateBook_Click" Width="130" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <Button Content="Delete Book" HorizontalAlignment="Left" Margin="346,362,0,0" VerticalAlignment="Top" Click="DeleteBook_Click" Width="100" Height="30" FontFamily="Bahnschrift Condensed"/>
         <TextBlock x:Name="tb_ISBN" HorizontalAlignment="Left" Margin="48,89,0,0" TextWrapping="Wrap" Text="ISBN : " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed"/>
         <TextBox x:Name="txt_ISBN" HorizontalAlignment="Left" Margin="159,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="550" Height="25" FontFamily="Bahnschrift Condensed"/>
         <TextBlock x:Name="tb_BookPrice" HorizontalAlignment="Left" Margin="48,140,0,0" TextWrapping="Wrap" Text="Book Price : " VerticalAlignment="Top" RenderTransformOrigin="0.053,1.031" FontFamily="Bahnschrift Condensed"/>
@@ -24,6 +24,9 @@
         <TextBlock x:Name="tb_BookDetail" HorizontalAlignment="Left" Margin="48,249,0,0" TextWrapping="Wrap" Text="Book Deatail : " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed"/>
         <TextBox x:Name="txt_BookDetail" HorizontalAlignment="Left" Margin="159,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="550" Height="89" FontFamily="Bahnschrift Condensed"/>
         <TextBlock x:Name="tb_ManageBook" HorizontalAlignment="Center" Margin="0,27,0,0" TextWrapping="Wrap" Text="Manage Book" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="25"/>
+        <Button x:Name="btn_CheckBook" Content="Check Book Information" HorizontalAlignment="Left" Margin="194,362,0,0" VerticalAlignment="Top" Click="CheckBook_Click" Width="120" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <TextBlock x:Name="tb_BookDetail_Copy" HorizontalAlignment="Left" Margin="175,397,0,0" TextWrapping="Wrap" Text="For Check Information : Please fill ISBN " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed"/>
+
 
     </Grid>
 </Window>

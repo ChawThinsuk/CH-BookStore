@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -47,11 +48,28 @@ namespace CHBookStore
 
         private void confirm_Click(object sender, RoutedEventArgs e)
         {
-            int price = int.Parse(txt_Price.Text);
-            int quantity = int.Parse(txt_Quantity.Text);
-            int totalPrice = price * quantity;
-            txt_TotalPrice.Text = totalPrice.ToString();
-            txt_CustomerName.Text = DataAccess.CustomerName_Where(txt_CustomerId.Text);
+            Regex quantity_Check = new Regex("[0-9]");
+            if (!quantity_Check.IsMatch(txt_Quantity.Text))
+            {
+                MessageBox.Show("Plese Full Quantity of book");
+            }
+            else
+            {
+                int price = int.Parse(txt_Price.Text);
+                int quantity = int.Parse(txt_Quantity.Text);
+                int totalPrice = price * quantity;
+                txt_TotalPrice.Text = totalPrice.ToString();
+                bool have_CustomerId = DataAccess.CustomerId_Check(txt_CustomerId.Text);
+                if (have_CustomerId)
+                {
+                    txt_CustomerName.Text = DataAccess.CustomerName_Where(txt_CustomerId.Text);
+                }
+                else
+                {
+                    MessageBox.Show("The system does not have a customer id.You will buy as a guest");
+                    txt_CustomerName.Text = "Guest";
+                }
+            }
         }
 
 

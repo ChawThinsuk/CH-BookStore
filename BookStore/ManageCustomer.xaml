@@ -10,10 +10,10 @@
         <Grid.Background>
             <ImageBrush ImageSource="/2111.w039.n003.23B.p1.23.jpg" Opacity="0.1"/>
         </Grid.Background>
-        <Button Content="Add Customer" HorizontalAlignment="Left" Margin="433,373,0,0" VerticalAlignment="Top" Click="AddCustomer_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
-        <Button x:Name="btn_BackToMain" Content="Back" HorizontalAlignment="Left" Margin="85,373,0,0" VerticalAlignment="Top" Click="BackToMain_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
-        <Button x:Name="btn_UpdateCustomer" Content="Update Customer Information" HorizontalAlignment="Left" Margin="607,373,0,0" VerticalAlignment="Top" Click="UpdateCustomer_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
-        <Button Content="Delete Customer" HorizontalAlignment="Left" Margin="252,373,0,0" VerticalAlignment="Top" Click="DeleteCustomer_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <Button Content="Add Customer" HorizontalAlignment="Left" Margin="484,362,0,0" VerticalAlignment="Top" Click="AddCustomer_Click" Width="100" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <Button x:Name="btn_BackToMain" Content="Back" HorizontalAlignment="Left" Margin="62,362,0,0" VerticalAlignment="Top" Click="BackToMain_Click" Width="100" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <Button x:Name="btn_UpdateCustomer" Content="Update Customer Information" HorizontalAlignment="Left" Margin="607,362,0,0" VerticalAlignment="Top" Click="UpdateCustomer_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <Button Content="Delete Customer" HorizontalAlignment="Left" Margin="355,362,0,0" VerticalAlignment="Top" Click="DeleteCustomer_Click" Width="100" Height="30" FontFamily="Bahnschrift Condensed"/>
         <TextBlock x:Name="tb_CustomerId" HorizontalAlignment="Left" Margin="62,84,0,0" TextWrapping="Wrap" Text="Customer_Id : " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed"/>
         <TextBox x:Name="txt_CustomerId" HorizontalAlignment="Left" Margin="180,88,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="550" Height="25" FontFamily="Bahnschrift Condensed"/>
         <TextBlock x:Name="tb_Customer_Name" HorizontalAlignment="Left" Margin="62,135,0,0" TextWrapping="Wrap" Text="Customer_Name : " VerticalAlignment="Top" RenderTransformOrigin="0.053,1.031" FontFamily="Bahnschrift Condensed"/>
@@ -24,6 +24,8 @@
         <TextBlock x:Name="tb_Email" HorizontalAlignment="Left" Margin="62,244,0,0" TextWrapping="Wrap" Text="Email : " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed"/>
         <TextBox x:Name="txt_Email" HorizontalAlignment="Left" Margin="180,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="550" Height="89" FontFamily="Bahnschrift Condensed"/>
         <TextBlock x:Name="tb_ManageCustomerHeading" HorizontalAlignment="Center" Margin="0,33,0,0" TextWrapping="Wrap" Text="Manage Customer " VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift Condensed"/>
+        <Button x:Name="btn_CheckCustomer" Content="Check Customer Information" HorizontalAlignment="Left" Margin="180,362,0,0" VerticalAlignment="Top" Click="CheckCustomer_Click" Width="150" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <TextBlock x:Name="tb_CustomerDetail" HorizontalAlignment="Left" Margin="161,397,0,0" TextWrapping="Wrap" Text="For Check Information : Please fill Customer ID " VerticalAlignment="Top" FontFamily="Bahnschrift Condensed"/>
 
     </Grid>
 </Window>
